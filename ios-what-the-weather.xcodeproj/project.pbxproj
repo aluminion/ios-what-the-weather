@@ -14,7 +14,9 @@
 		B78FF91A1D01079F002A788F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B78FF9181D01079F002A788F /* LaunchScreen.storyboard */; };
 		B78FF9251D01079F002A788F /* ios_what_the_weatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FF9241D01079F002A788F /* ios_what_the_weatherTests.swift */; };
 		B78FF9301D01079F002A788F /* ios_what_the_weatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78FF92F1D01079F002A788F /* ios_what_the_weatherUITests.swift */; };
-		B78FF93E1D01092F002A788F /* weather-background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B78FF93D1D01092F002A788F /* weather-background.jpg */; };
+		B7D28ADD1D04FB3800F9301B /* kitten_png_image.png in Resources */ = {isa = PBXBuildFile; fileRef = B7D28ADC1D04FB3800F9301B /* kitten_png_image.png */; };
+		B7D28ADF1D04FBE700F9301B /* weather.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7D28ADE1D04FBE700F9301B /* weather.jpg */; };
+		B7D28AE11D05128F00F9301B /* weather-background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7D28AE01D05128F00F9301B /* weather-background.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +50,9 @@
 		B78FF92B1D01079F002A788F /* ios-what-the-weatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-what-the-weatherUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B78FF92F1D01079F002A788F /* ios_what_the_weatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_what_the_weatherUITests.swift; sourceTree = "<group>"; };
 		B78FF9311D01079F002A788F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B78FF93D1D01092F002A788F /* weather-background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "weather-background.jpg"; path = "../../../../Downloads/weather-background.jpg"; sourceTree = "<group>"; };
+		B7D28ADC1D04FB3800F9301B /* kitten_png_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = kitten_png_image.png; path = ../../../Downloads/study/iOS/resources/kitten_png_image.png; sourceTree = "<group>"; };
+		B7D28ADE1D04FBE700F9301B /* weather.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = weather.jpg; path = ../../../../Downloads/weather.jpg; sourceTree = "<group>"; };
+		B7D28AE01D05128F00F9301B /* weather-background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "weather-background.jpg"; path = "../../../../Downloads/weather-background.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 		B78FF9031D01079F002A788F = {
 			isa = PBXGroup;
 			children = (
+				B7D28ADC1D04FB3800F9301B /* kitten_png_image.png */,
 				B78FF90E1D01079F002A788F /* ios-what-the-weather */,
 				B78FF9231D01079F002A788F /* ios-what-the-weatherTests */,
 				B78FF92E1D01079F002A788F /* ios-what-the-weatherUITests */,
@@ -99,10 +104,11 @@
 		B78FF90E1D01079F002A788F /* ios-what-the-weather */ = {
 			isa = PBXGroup;
 			children = (
-				B78FF93D1D01092F002A788F /* weather-background.jpg */,
 				B78FF90F1D01079F002A788F /* AppDelegate.swift */,
 				B78FF9111D01079F002A788F /* ViewController.swift */,
+				B7D28AE01D05128F00F9301B /* weather-background.jpg */,
 				B78FF9131D01079F002A788F /* Main.storyboard */,
+				B7D28ADE1D04FBE700F9301B /* weather.jpg */,
 				B78FF9161D01079F002A788F /* Assets.xcassets */,
 				B78FF9181D01079F002A788F /* LaunchScreen.storyboard */,
 				B78FF91B1D01079F002A788F /* Info.plist */,
@@ -232,9 +238,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7D28ADF1D04FBE700F9301B /* weather.jpg in Resources */,
+				B7D28ADD1D04FB3800F9301B /* kitten_png_image.png in Resources */,
 				B78FF91A1D01079F002A788F /* LaunchScreen.storyboard in Resources */,
 				B78FF9171D01079F002A788F /* Assets.xcassets in Resources */,
-				B78FF93E1D01092F002A788F /* weather-background.jpg in Resources */,
+				B7D28AE11D05128F00F9301B /* weather-background.jpg in Resources */,
 				B78FF9151D01079F002A788F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,6 +496,7 @@
 				B78FF9361D01079F002A788F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B78FF9371D01079F002A788F /* Build configuration list for PBXNativeTarget "ios-what-the-weatherTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +505,7 @@
 				B78FF9391D01079F002A788F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B78FF93A1D01079F002A788F /* Build configuration list for PBXNativeTarget "ios-what-the-weatherUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +514,7 @@
 				B78FF93C1D01079F002A788F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

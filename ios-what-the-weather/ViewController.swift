@@ -10,41 +10,76 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var lblResult: UILabel!
+    
+    @IBOutlet var txtCity: UITextField!
+    
+    @IBAction func btnWeather(sender: AnyObject) {
+        
+        var city = txtCity.text
+        if city != nil {
+            
+            city = city?.stringByReplacingOccurrencesOfString(" ", withString: "-")
+            
+            let url = NSURL(string : "http://www.weather-forecast.com/locations/"+city!+"/forecasts/latest")
+            var weather = ""
+            if url != nil {
+                let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: {
+                    (data, response, error) -> Void in
+                    if error == nil{
+                        
+                        weather = self.contentHandle(data)
+                        weather = weather.stringByReplacingOccurrencesOfString("&deg;", withString:  "º")
+                        
+                    }else{
+                        print("Error occured \(error)")
+                    }
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        if weather != "" {
+                            self.lblResult.text = weather
+                        }
+                    }
+                })
+                
+                
+                
+                task.resume()
+                
+            }else{
+                print("URL is nil")
+            }
+            
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Start request weather of London")
-        let url = NSURL(string : "http://www.weather-forecast.com/locations/London/forecasts/latest")
-        
-        if url != nil {
-            print("URL is not nil")
-            let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: {
-            (data, response, error) -> Void in
-                if error == nil{
-                    
-                    self.contentHandle(data)
-                    
-                }else{
-                    print("Error occured \(error)")
-                }
-            })
-            task.resume()
-        }else{
-            print("URL is nil")
-        }
-        
-        
     }
     
-    func contentHandle(data : NSData?){
+    func contentHandle(data : NSData?) -> String{
         let urlContent = NSString(data: data!, encoding: NSUTF8StringEncoding)
-        self.extractWeatherForecast(urlContent)
+        return self.extractWeatherForecast(urlContent)
     }
     
-    func extractWeatherForecast(htmlContent : NSString?){
-        let htmlSplitted = htmlContent!.componentsSeparatedByString("<span class=\"phrase\">")
-        if htmlSplitted.count > 0{
-            let weatherArray = 
+    func extractWeatherForecast(htmlContent : NSString?) -> String {
+
+        if htmlContent!.containsString("(404)") == false {
+            print("Correct city")
+            let htmlSplitted = htmlContent!.componentsSeparatedByString("<span class=\"phrase\">")
+            if htmlSplitted.count > 1{
+                let weatherArray = htmlSplitted[1].componentsSeparatedByString("</span>")
+                
+                let weather = weatherArray[0] as String
+                
+                return weather
+            }
+            
+        }else{
+            print("Incorrect city")
         }
+        return ""
     }
 
     override func didReceiveMemoryWarning() {
